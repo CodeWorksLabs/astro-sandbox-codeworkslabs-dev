@@ -1,15 +1,38 @@
 ---
+import SandboxLayout from '../layouts/SandboxLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<SandboxLayout
+	title="Home"
+	description="A stock Astro environment for qualifying CodeWorksLabs integrations on Cloudflare."
+	currentPath="/"
+>
+	<p class="eyebrow">CodeWorksLabs test surface</p>
+	<h1>Small site. Real runtime.</h1>
+	<p class="lede">
+		A deliberately compact Astro site for checking production builds, Cloudflare delivery,
+		client navigation, and Analytics for Astro against a real browser and provider.
+	</p>
+
+	<div class="pills" aria-label="Current environment">
+		<span class="pill">Astro 7.3.2</span>
+		<span class="pill">Cloudflare Workers</span>
+		<span class="pill">Fathom connected</span>
+		<span class="pill">Search indexing disabled</span>
+	</div>
+
+	<section class="grid" aria-label="Sandbox capabilities">
+		<article class="card">
+			<h2>Analytics test</h2>
+			<p>Use the <a href="/analytics/">interactive test page</a> to exercise the public event client and inspect its result.</p>
+		</article>
+		<article class="card">
+			<h2>Stock foundation</h2>
+			<p>The site stays intentionally small so integration behavior remains easy to observe and diagnose.</p>
+		</article>
+		<article class="card">
+			<h2>Companion harness</h2>
+			<p>Compare behavior with the <a href="https://stockstarlight.sandbox.codeworkslabs.dev/">stock Starlight sandbox</a>.</p>
+		</article>
+	</section>
+</SandboxLayout>
