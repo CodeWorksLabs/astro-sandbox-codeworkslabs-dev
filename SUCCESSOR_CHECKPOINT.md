@@ -318,3 +318,12 @@ is `E3AE90C07109E00AC634BFD5F87A4EB6D2755B62907967CC7AF85A2B27E25DD1`.
 The emitted Matomo runtime is `dist/_astro/page.XC3D_5dm.js`, SHA-256
 `8AC7E5828663CABED3D1203B82EC0775C08445038EBFDEB06C645E0E0F882C67`.
 No deployment or provider-side receipt is claimed by these local gates.
+
+The first remote alpha.8 verification run, `34747128536` at commit `280aee4`,
+failed at `npm ci` before build or deployment. The public tag resolved to the
+correct commit and packed successfully, but npm correctly rejected the Linux
+tarball against the Windows-generated local-file integrity in the committed
+lockfile. This is the previously documented cross-platform gzip identity issue,
+not a source-content or Matomo failure. The workflow correction refreshes only
+the runner-local package-lock metadata from the exact commit-pinned tarball
+before `npm ci`; the tag and resolved commit remain the stable source identity.
