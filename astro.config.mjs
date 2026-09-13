@@ -25,6 +25,13 @@ export default defineConfig({
 						},
 					},
 				},
+				{
+					name: 'matomo',
+					trackerUrl: 'https://matomo.codeworkslabs.net/matomo.php',
+					scriptSrc: 'https://matomo.codeworkslabs.net/matomo.js',
+					siteId: '2',
+					eventCategory: 'Astro sandbox',
+				},
 			],
 			events: true,
 		}),
