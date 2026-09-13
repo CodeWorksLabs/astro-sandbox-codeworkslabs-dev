@@ -286,3 +286,12 @@ Before push on 2026-09-12, the corrected public-checkout artifact was installed
 locally and the clean install, production audit, three-page Astro build, and
 Wrangler 4.131.1 dry-run all passed. The production audit found zero
 vulnerabilities. This verification performed no deployment.
+
+The first pushed workflow run, `34731641997` at commit `853a3e2`, correctly
+failed the nonportable tarball-hash gate. Commit `dd51db6` replaced that gate
+with annotated-tag plus resolved-commit verification; GitHub Actions run
+`34731822799` then completed successfully. The active workflow contains no
+GitHub App credential reference, fixed tarball hash, or non-dry-run Wrangler
+deployment. Cloudflare version history still ended at the existing manual
+version `d1f95b77-fb8f-4bcf-86fe-eb36452fc7a0`, so these pushes did not deploy
+or change Cloudflare configuration. The public sandbox remained HTTP 200.
