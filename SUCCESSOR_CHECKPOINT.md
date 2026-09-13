@@ -400,3 +400,17 @@ Wrangler dry-run, and `git diff --check`. The installed runtime SHA-256 is
 bundle `dist/_astro/page.Co9lwImv.js` contains the exact Umami script origin and
 Astro website UUID. The repository is ready for its alpha.9 commit/push and
 Cloudflare Workers Builds deployment.
+
+Repository commit `51f526b829ce1ab4a5bb907906beb63720214cca` was pushed to
+this repository's `main`. GitHub Actions run `34779293120` passed. Cloudflare
+Workers Builds deployed the matching commit successfully as active version
+`c7efee2c` at 100% traffic; no local Wrangler deployment was used.
+
+Live Chrome qualification selected Umami on `/analytics/`. The package reported
+Umami `ready`, the explicit `cwl_astro_journey_continued` event returned
+accepted, and the browser advanced to `/analytics/next/` with a receipt showing
+Umami accepted the event. The self-hosted Umami dashboard independently showed
+one visitor, one visit, two views split between `/analytics/` and
+`/analytics/next/`, plus one `cwl_astro_journey_continued` event. Alpha.9 Umami
+repository deployment and provider-side live qualification are complete for
+this stock Astro sandbox.
