@@ -32,6 +32,11 @@ export default defineConfig({
 					siteId: '2',
 					eventCategory: 'Astro sandbox',
 				},
+				{
+					name: 'umami',
+					websiteId: 'd6954239-fe70-488b-b7b9-97a411f11029',
+					scriptSrc: 'https://umami.codeworkslabs.net/script.js',
+				},
 			],
 			events: true,
 		}),

@@ -55,7 +55,7 @@ import SandboxLayout from '../layouts/SandboxLayout.astro';
 				? 'Plausible'
 				: provider === 'matomo'
 					? 'Matomo'
-					: provider;
+					: provider === 'umami' ? 'Umami' : provider;
 	const providers = configuredProviders();
 	const selectedProvider = () => adapterSelect?.value as ProviderName | undefined;
 	const setJourneyEnabled = (enabled: boolean) => {

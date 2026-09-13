@@ -15,7 +15,7 @@
     "deploy": "wrangler deploy --config wrangler.jsonc --strict"
   },
   "dependencies": {
-    "@codeworkslabs/astro-analytics": "file:vendor/codeworkslabs-astro-analytics-0.1.0-alpha.8.tgz",
+    "@codeworkslabs/astro-analytics": "file:vendor/codeworkslabs-astro-analytics-0.1.0-alpha.9.tgz",
     "astro": "7.3.2"
   },
   "devDependencies": {
