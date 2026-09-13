@@ -333,3 +333,22 @@ not refresh an unchanged local-file dependency's integrity. The replacement
 step validates the declared tarball, installed package version, and resolved
 lock path, computes SHA-512 directly over the runner-produced artifact, and
 updates only that lock entry before the clean install.
+
+Remote run `34747307640` completed successfully at commit `70b013e`. Every
+declared verification step passed, including the exact public tag/commit
+reconciliation, clean install, audits, production build, emitted-runtime
+checks, and Wrangler dry-run.
+
+The exact reviewed public alpha.8 package archive is now retained in this
+repository as a deployment input. Its SHA-256 remains
+`FE5C5FD1F8DFECDD2BF0C233663FE88507A5C9744DD6FE8C98E2D42AD71E0717`.
+This makes a fresh Cloudflare Git checkout independently installable before any
+custom build command runs. Older local package archives remain ignored. The
+GitHub workflow continues to reconstruct and verify the annotated public tag
+and exact commit independently; retaining this archive does not replace that
+source-identity gate.
+
+After making the archive trackable, a fresh sequential `npm ci`, complete
+audit, production-only audit, three-page production build, and Wrangler dry-run
+all passed. Both audits reported zero vulnerabilities. This verification made
+no Cloudflare or provider mutation.
