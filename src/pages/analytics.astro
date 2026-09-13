@@ -51,7 +51,11 @@ import SandboxLayout from '../layouts/SandboxLayout.astro';
 		? 'Fathom'
 		: provider === 'google-analytics'
 			? 'Google Analytics 4'
-			: 'Plausible';
+			: provider === 'plausible'
+				? 'Plausible'
+				: provider === 'matomo'
+					? 'Matomo'
+					: provider;
 	const providers = configuredProviders();
 	const selectedProvider = () => adapterSelect?.value as ProviderName | undefined;
 	const setJourneyEnabled = (enabled: boolean) => {

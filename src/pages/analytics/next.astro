@@ -31,7 +31,9 @@ import SandboxLayout from '../../layouts/SandboxLayout.astro';
 		? 'Fathom'
 		: provider === 'google-analytics'
 			? 'Google Analytics 4'
-			: provider === 'plausible' ? 'Plausible' : provider;
+			: provider === 'plausible'
+				? 'Plausible'
+				: provider === 'matomo' ? 'Matomo' : provider;
 	if (!stored) {
 		if (result) result.textContent = 'This page was opened directly, so there is no preceding journey-event receipt in this tab.';
 	} else {

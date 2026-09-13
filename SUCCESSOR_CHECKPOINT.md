@@ -362,3 +362,11 @@ build command `npm run build`, deploy command `npm run deploy`, root directory
 first repository-driven build would begin on the next push; this checkpoint
 update is that triggering push. Live deployment and Matomo receipt remain to
 be verified after the build completes.
+
+The first repository-driven deployment completed as Worker version
+`d3395153-82bb-47bc-b0f1-ca6b8e0dcf11`. The live site returned HTTP 200 and
+its primary runtime contained the Matomo endpoint, but browser qualification
+showed that the sandbox operator's local provider-label helper rendered Matomo
+as a second `Plausible` choice. The helper now maps Matomo explicitly on both
+journey pages. The three-page build and Wrangler dry-run passed. This is a
+sandbox presentation correction; the reviewed alpha.8 package is unchanged.
