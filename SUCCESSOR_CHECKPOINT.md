@@ -352,3 +352,13 @@ After making the archive trackable, a fresh sequential `npm ci`, complete
 audit, production-only audit, three-page production build, and Wrangler dry-run
 all passed. Both audits reported zero vulnerabilities. This verification made
 no Cloudflare or provider mutation.
+
+Commit `3282c42` retained the exact reviewed alpha.8 package and was pushed to
+public `main`. GitHub Actions run `34767339313` completed successfully for that
+exact commit. Cloudflare's native Builds integration was then connected to
+`CodeWorksLabs/astro-sandbox-codeworkslabs-dev`, production branch `main`, with
+build command `npm run build`, deploy command `npm run deploy`, root directory
+`/`, and non-production branch builds enabled. Cloudflare reported that the
+first repository-driven build would begin on the next push; this checkpoint
+update is that triggering push. Live deployment and Matomo receipt remain to
+be verified after the build completes.
