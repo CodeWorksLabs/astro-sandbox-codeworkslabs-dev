@@ -10,16 +10,17 @@ Updated: 2026-09-14
   `ae6a9884e3cada297f11c641a90082f296380bcb`.
 - The exact candidate package is 27,344 bytes with SHA-256
   `6734b4b449d85ecc8cdf2c9009aac4e8a733e06e045634468ba59277cd37b228`.
-- The local candidate has not been pushed or deployed.
+- Qualification commit `f0b1caf9be46926bf122d36205c9de61a0a900ce`
+  is pushed and deployed.
 
 ## Live state
 
-- The live Cloudflare Worker remains
-  `0cfba6c1-dbe7-4b17-b96b-8d2cc7f9e23b`.
-- That deployment belongs to the accepted Alpha.10 generation, not the local
-  Alpha.20 candidate.
-- `https://astro.sandbox.codeworkslabs.dev/analytics/` returned HTTP 200 during
-  the 2026-09-14 recovery inventory.
+- The live Cloudflare Worker version is
+  `13328588-23e2-47d6-9228-80b47f8749ec`.
+- It deploys the qualified Alpha.20 consumer from commit `f0b1caf9`.
+- `https://astro.sandbox.codeworkslabs.dev/analytics/` and `/analytics/next/`
+  returned HTTP 200 after deployment. The live analytics bundle contains all
+  five configured provider integrations.
 
 ## Verification state
 
@@ -34,7 +35,6 @@ Updated: 2026-09-14
 
 - The pre-cleanup 17-commit local history is preserved in
   `C:\CodeProjects\Archives\Astro Analytics Recovery\2026-09-14\astro-sandbox-before-cleanup.bundle`.
-- Alpha.20 is locally qualified for this consumer. Push and deployment still
-  require Phil's exact authorization.
+- Alpha.20 is locally qualified, pushed, and deployed for this consumer.
 - Product development does not authorize GitHub, credential, Cloudflare,
   deployment, or release changes.
