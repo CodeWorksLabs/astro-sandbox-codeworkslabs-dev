@@ -24,9 +24,12 @@ import SandboxLayout from '../../layouts/SandboxLayout.astro';
 </SandboxLayout>
 
 <script>
+	import { configuredProviders } from '@codeworkslabs/astro-analytics/client';
+	import { consumeJourneyReceipt, validateJourneyTrackResult } from '../../lib/journey-receipt';
+
 	const result = document.querySelector<HTMLParagraphElement>('#journey-result');
 	const providerResults = document.querySelector<HTMLUListElement>('#provider-results');
-	const stored = sessionStorage.getItem('cwl-astro-journey-result');
+	const hasJourneyIdentity = document.referrer.length > 0;
 	const providerLabel = (provider: string) => provider === 'fathom'
 		? 'Fathom'
 		: provider === 'google-analytics'
@@ -35,35 +38,33 @@ import SandboxLayout from '../../layouts/SandboxLayout.astro';
 				? 'Plausible'
 				: provider === 'matomo'
 					? 'Matomo'
-					: provider === 'umami' ? 'Umami' : provider;
-	if (!stored) {
-		if (result) result.textContent = 'This page was opened directly, so there is no preceding journey-event receipt in this tab.';
-	} else {
-		try {
-			const receipt = JSON.parse(stored) as {
-				selectedProvider: string;
-				response: {
-					ok: boolean;
-					providers: Record<string, { ok: boolean; reason?: string }>;
-				};
-			};
+			: provider === 'umami' ? 'Umami' : provider;
+	try {
+		const receipt = consumeJourneyReceipt(
+			sessionStorage,
+			'cwl-astro-journey-result',
+			window.location.href,
+			document.referrer,
+			Date.now(),
+		);
+			const validatedEntries = validateJourneyTrackResult(receipt, configuredProviders());
 			const selectedLabel = providerLabel(receipt.selectedProvider);
 			if (result) result.textContent = `${selectedLabel} accepted the event, so the journey advanced. This pageview is now the next stop.`;
 			if (providerResults) {
-				for (const [provider, outcome] of Object.entries(receipt.response.providers)) {
+				for (const [provider, outcome] of validatedEntries) {
 					const item = document.createElement('li');
-					item.className = outcome.ok ? 'accepted' : 'rejected';
-					item.textContent = outcome.ok
+					item.className = outcome.ok === true ? 'accepted' : 'rejected';
+					item.textContent = outcome.ok === true
 						? `${providerLabel(provider)} accepted the event.`
-						: `${providerLabel(provider)} did not accept the event (${outcome.reason ?? 'unknown reason'}).`;
+						: `${providerLabel(provider)} did not accept the event (${typeof outcome.reason === 'string' ? outcome.reason : 'unknown reason'}).`;
 					providerResults.append(item);
 				}
 			}
-		} catch {
-			if (result) result.textContent = 'The saved journey receipt was unreadable. This destination pageview is still the next stop.';
-		}
+	} catch {
+		if (result) result.textContent = hasJourneyIdentity
+			? 'No valid successful journey receipt was available for this destination pageview.'
+			: 'This page was opened directly, so there is no preceding journey-event receipt in this tab.';
 	}
-	sessionStorage.removeItem('cwl-astro-journey-result');
 </script>
 
 <style>

@@ -6,6 +6,7 @@ export default defineConfig({
 	site: 'https://astro.sandbox.codeworkslabs.dev',
 	integrations: [
 		analytics({
+			blockedQueryParameters: ['cwl_journey'],
 			providers: [
 				{ name: 'fathom', siteId: 'KVFDQBQP' },
 				{
