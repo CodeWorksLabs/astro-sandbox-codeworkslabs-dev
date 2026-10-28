@@ -1,8 +1,36 @@
 # Astro Analytics Sandbox Handoff
 
-Updated: 2026-09-14
+Updated: 2026-10-28
 
-## Current boundary
+## Current local migration work
+
+An authorized local-only Alpha.23 candidate is being prepared on main. Read
+MIGRATION_ALPHA23.md for the exact artifact/source pin, Phil's dated operator
+attestation, mutation boundary, verification state and rollback identity.
+Restart recovery on 2026-10-28 confirmed the local changes and evidence survived.
+The exact vendored Alpha.23 SHA-256 is
+190408df5cc9b34462081ed213669cbf1149d84e11123969cc82624a87691127.
+Fresh local verification before shutdown passed: offline clean install (301
+packages), final npm test (16/16), Astro check (zero findings), and build
+(three pages). The initial Node type-stripping failure is retained alongside
+the successful scoped-loader runs. Read MIGRATION_ALPHA23.md for limitations
+and exact log/archive identities. This restart verified the saved evidence;
+it did not rerun those commands.
+
+The work remains uncommitted on main atop
+134fa6cb870fe2f2cec3300da0cb1339fbce44b5. Next: finish the exact candidate/control
+freeze, then commission independent review under the complete doctrine. Review
+is pending; do not treat local verification as acceptance. No audit, Wrangler
+dry run, native browser or live provider verification has been performed for
+this candidate. Nothing has been pushed or deployed. Starlight remains untouched.
+
+Product HEAD remains 20ab007c597d1750c2a6234741d368d36665ce4c with a clean
+worktree. Astro Boss's 2026-10-28 routed authorization and operator attestation
+were re-read after restart. That chat is ceased at Phil's request; a progress
+report must not be treated as permission to resume its work or demand action.
+The Alpha.21 deployment evidence below is historical and was not reverified.
+
+## Historical Alpha.21 boundary
 
 - This repository owns `astro.sandbox.codeworkslabs.dev`.
 - The qualified consumer integrates Analytics for Astro `0.1.0-alpha.21`
@@ -12,7 +40,7 @@ Updated: 2026-09-14
 - Consumer commit `91f9c9fd8427ea0ab94bec2e367337dd90f6e512`
   is pushed and deployed.
 
-## Live state
+## Historical live-state record
 
 - The live Cloudflare Worker version is
   `78d93a62-e8fe-4c2d-b574-7e6b6ff140cd`.
@@ -21,7 +49,7 @@ Updated: 2026-09-14
   returned HTTP 200 after deployment. The live analytics bundle contains all
   five configured provider integrations.
 
-## Verification state
+## Historical Alpha.21 verification
 
 - A clean local install resolved the exact Alpha.21 package.
 - Fresh verification passed: production dependency audit with zero
@@ -32,7 +60,7 @@ Updated: 2026-09-14
   Alpha.21 event-property correction rejects malformed public-browser property
   bags before provider dispatch. No release or product-risk acceptance occurred.
 
-## Recovery and next action
+## Historical Alpha.21 recovery
 
 - The pre-cleanup 17-commit local history is preserved in
   `C:\CodeProjects\Archives\Astro Analytics Recovery\2026-09-14\astro-sandbox-before-cleanup.bundle`.
