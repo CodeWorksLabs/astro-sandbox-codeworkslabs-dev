@@ -17,12 +17,22 @@ the successful scoped-loader runs. Read MIGRATION_ALPHA23.md for limitations
 and exact log/archive identities. This restart verified the saved evidence;
 it did not rerun those commands.
 
-The work remains uncommitted on main atop
-134fa6cb870fe2f2cec3300da0cb1339fbce44b5. Next: finish the exact candidate/control
-freeze, then commission independent review under the complete doctrine. Review
-is pending; do not treat local verification as acceptance. No audit, Wrangler
+The local executable candidate is committed on main as
+b2654c8a7602f083ce07bb69bf79edd81fe696a1, tree
+f5094ae99d18c73ceaad3dea0606401553cfda5b, atop existing origin/main
+134fa6cb870fe2f2cec3300da0cb1339fbce44b5. Independent review
+AFA-ASTRO-SANDBOX-ALPHA23-LOCAL-MIGRATION-20261028-01 concluded
+INTERNAL CODE REVIEW PASS WITH P2/P3 FINDINGS for the bounded local preparation
+gate: P0 0, P1 0, P2 0, P3 1 (this checkpoint's stale pre-freeze wording).
+See REVIEW_ALPHA23_LOCAL.md for the report record and limits. The current
+documentation-only follow-up corrects that wording and records the review;
+it does not change runtime, tests, dependencies, configuration or output.
+The original disposition remains bound to the exact candidate above; no PASS
+is inherited for changed documentation. Focused continuity closure is next.
+No audit, Wrangler
 dry run, native browser or live provider verification has been performed for
-this candidate. Nothing has been pushed or deployed. Starlight remains untouched.
+this candidate. Nothing has been pushed or deployed. Starlight is the next
+separately reviewed local candidate; inspect its own checkpoint for current state.
 
 Product HEAD remains 20ab007c597d1750c2a6234741d368d36665ce4c with a clean
 worktree. Astro Boss's 2026-10-28 routed authorization and operator attestation
