@@ -2,7 +2,21 @@
 
 Updated: 2026-10-28
 
-## Current local migration work
+## Current deployment-check state
+
+Phil authorized deployment checks on 2026-10-28, still with no push/deployment.
+Against source HEAD 740f05edae710b2b18053a3198ac5f38f5b1a790, normal npm ci,
+16 tests, rebuild and Wrangler dry run succeeded. Production npm audit failed:
+8 affected package entries (6 high,1 moderate,1 low). No dependencies were
+changed or fixes applied. Deployment checks are NOT all green.
+
+Read DEPLOYMENT_CHECKS_20261028.md for command exits, audit packages, evidence
+and boundaries. New10-file output is byte-equal to the reviewed10-file output.
+Records added after execution do not alter that executable/output identity.
+Next: decide a bounded dependency correction, then rerun affected gates; do
+not deploy or treat the earlier local review as audit/release acceptance.
+
+## Reviewed local migration record (before deployment checks)
 
 An authorized local-only Alpha.23 candidate is being prepared on main. Read
 MIGRATION_ALPHA23.md for the exact artifact/source pin, Phil's dated operator
