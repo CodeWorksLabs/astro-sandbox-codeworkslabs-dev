@@ -2,7 +2,31 @@
 
 Updated: 2026-10-28
 
-## Current deployment-check state
+## Current authorized dependency correction
+
+Phil authorized dependency assessment/correction in both sandboxes, rerun checks
+and independent reviews on 2026-10-28. No push or deployment. Starting Astro
+HEAD200473b1b582c6f675e2d0ea868b17f650a38312 was clean. Planned direct pins:
+Astro7.3.3 and Wrangler4.155.0, with affected transitive dependencies refreshed
+within supported declared ranges. Preserve Alpha.23 artifact, provider config,
+site source and ownership. Do not inherit the prior review for changed deps.
+
+Corrected dependencies and fresh author checks are complete; independent
+review is pending at this pre-review snapshot. Read
+DEPENDENCY_CORRECTION_20261028.md for assessment, full lock delta and fresh exits.
+Normal install, production/full audits(zero),16tests,check11zero,3page build and
+Wrangler4.155.0 dry run all passed. Astro7.3.3/Wrangler4.155.0 direct pins;
+affected compatible transitive updates, no overrides or force-fix.
+At the declared freeze, source editing is stopped and queue empty; the freeze
+message binds the exact commit/tree containing this checkpoint. Evidence root:
+C:\Users\Owner\AppData\Local\Temp\astro-sandbox-dependency-fix-26670261e1ce4f76980f375665e1200a.
+The full before-audit also includes fast-uri/Miniflare/Wrangler dev-tool paths.
+Astro Boss's cease is explicitly lifted by Phil; it has received a progress
+message. Next: independent composite review of this exact new graph and output.
+No old PASS transfers to corrected dependencies. Native/live/remote CI and
+rollout remain unexecuted. No push/deployment or product-source change.
+
+## Historical deployment-check state before correction
 
 Phil authorized deployment checks on 2026-10-28, still with no push/deployment.
 Against source HEAD 740f05edae710b2b18053a3198ac5f38f5b1a790, normal npm ci,

@@ -38,6 +38,14 @@ For local diagnostics/builds, `ASTRO_TELEMETRY_DISABLED=1` disables Astro's
 telemetry. Audits and Wrangler dry runs remain release gates; they were not run
 as part of the no-provider-traffic deterministic migration preparation.
 
+## Dependency correction preflight
+
+The 2026-10-28 corrected candidate pins Astro7.3.3 and Wrangler4.155.0, with
+targeted compatible security updates in the lockfile. See
+DEPENDENCY_CORRECTION_20261028.md for fresh normal-install, zero production/full
+audit, test/check/build/dry-run evidence and the separate independent review.
+Earlier migration/audit records are historical. No push or deployment is implied.
+
 ## Rights
 
 Site software and content carry no repository-wide license unless a file explicitly states one. Artwork is not open licensed by publication or repository access. The public ownership wording is `© 2026 CodeWorksLabs, a WebSynergetics property.`
