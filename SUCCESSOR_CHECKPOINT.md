@@ -16,7 +16,13 @@ AFA-ASTRO-SANDBOX-DEPENDENCY-CORRECTION-20261028-01 passed its bounded Composite
 gate at2a29ef2eaf89513b87b4c28ca9e5ab1256806b8b/tree222393a11eaf7ad45747fb103f01887596187e4e
 with one P3 stale home-page version label,zeroP0/P1/P2. The label now uses
 Astro.generator; fresh check/build/dry run and built-version assertion passed.
-Focused independent P3 closure is pending at this pre-closure snapshot. Read
+Focused independent P3 closure
+AFA-ASTRO-SANDBOX-DEPENDENCY-LABEL-CLOSURE-20261028-01 concluded INTERNAL CODE
+REVIEW PASS atbc0754794d4fd43b2fdce599454dd75d15a60101,
+treebe634bd314880206e233514f5872f46f0b97b1ec, clean closing state. P3 closed,
+zero open focused findings. Only index.html changed in the refreshed output;
+graph/config/runtime/tests/CI unchanged. This later record entry does not
+promote the original Composite review into a new full-candidate PASS. Read
 DEPENDENCY_CORRECTION_20261028.md for assessment, full lock delta and fresh exits.
 Normal install, production/full audits(zero),16tests,check11zero,3page build and
 Wrangler4.155.0 dry run all passed. Astro7.3.3/Wrangler4.155.0 direct pins;
@@ -26,7 +32,8 @@ message binds the exact commit/tree containing this checkpoint. Evidence root:
 C:\Users\Owner\AppData\Local\Temp\astro-sandbox-dependency-fix-26670261e1ce4f76980f375665e1200a.
 The full before-audit also includes fast-uri/Miniflare/Wrangler dev-tool paths.
 Astro Boss's cease is explicitly lifted by Phil; it has received a progress
-message. Next: focused independent closure of the exact submitted P3 correction.
+message. Astro's local correction/review work is done. Starlight has its own
+correction/review underway; consult its checkpoint for the current candidate.
 No old PASS transfers to corrected dependencies. Native/live/remote CI and
 rollout remain unexecuted. No push/deployment or product-source change.
 
