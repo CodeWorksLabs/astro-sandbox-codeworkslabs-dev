@@ -11,8 +11,12 @@ Astro7.3.3 and Wrangler4.155.0, with affected transitive dependencies refreshed
 within supported declared ranges. Preserve Alpha.23 artifact, provider config,
 site source and ownership. Do not inherit the prior review for changed deps.
 
-Corrected dependencies and fresh author checks are complete; independent
-review is pending at this pre-review snapshot. Read
+Corrected dependencies and fresh author checks are complete. Internal review
+AFA-ASTRO-SANDBOX-DEPENDENCY-CORRECTION-20261028-01 passed its bounded Composite
+gate at2a29ef2eaf89513b87b4c28ca9e5ab1256806b8b/tree222393a11eaf7ad45747fb103f01887596187e4e
+with one P3 stale home-page version label,zeroP0/P1/P2. The label now uses
+Astro.generator; fresh check/build/dry run and built-version assertion passed.
+Focused independent P3 closure is pending at this pre-closure snapshot. Read
 DEPENDENCY_CORRECTION_20261028.md for assessment, full lock delta and fresh exits.
 Normal install, production/full audits(zero),16tests,check11zero,3page build and
 Wrangler4.155.0 dry run all passed. Astro7.3.3/Wrangler4.155.0 direct pins;
@@ -22,7 +26,7 @@ message binds the exact commit/tree containing this checkpoint. Evidence root:
 C:\Users\Owner\AppData\Local\Temp\astro-sandbox-dependency-fix-26670261e1ce4f76980f375665e1200a.
 The full before-audit also includes fast-uri/Miniflare/Wrangler dev-tool paths.
 Astro Boss's cease is explicitly lifted by Phil; it has received a progress
-message. Next: independent composite review of this exact new graph and output.
+message. Next: focused independent closure of the exact submitted P3 correction.
 No old PASS transfers to corrected dependencies. Native/live/remote CI and
 rollout remain unexecuted. No push/deployment or product-source change.
 

@@ -106,7 +106,7 @@ source3a58043a6cc22a8778cc5c1d17cd9e15531d2bb3,19members/32,752bytes.
 After all checks only continuity/control docs changed; those are not build
 inputs. Exact final commit/tree will be in the freeze commissioning message.
 
-## Independent review control
+## Independent review control (original candidate snapshot)
 
 ID AFA-ASTRO-SANDBOX-DEPENDENCY-CORRECTION-20261028-01.
 Requested type Composite candidate review: (1) dependency advisory closure and
@@ -127,3 +127,16 @@ Native browser/ClientRouter/accessibility, real providers/autonomy, remote CI,
 live rollout/rollback, publication/deployment and product/release acceptance
 remain excluded/open. Normal install/audits/build/dry run are now supplied
 fresh evidence, not excluded as in the earlier local migration review.
+
+## Original review result and submitted P3 correction
+
+The internal independent sub-agent reviewed main2a29ef2eaf89513b87b4c28ca9e5ab1256806b8b,
+tree222393a11eaf7ad45747fb103f01887596187e4e and returned INTERNAL CODE REVIEW
+PASS WITH P2/P3 FINDINGS, with one P3 stale home-page version label,zeroP0-P2.
+Read REVIEW_DEPENDENCY_CORRECTION_20261028.md for full coordinator record and
+provenance; original full report is visible in Analytics. Source label now uses
+Astro.generator; check/build/dry run and output-version assertion passed fresh.
+New version-label-closure evidence has its own ledger/archive identities in
+that record. No graph/test/config/artifact change occurred after2a29ef2;
+affected source/home output and continuity records changed as declared.
+Focused independent correction closure is pending at this pre-closure snapshot.
