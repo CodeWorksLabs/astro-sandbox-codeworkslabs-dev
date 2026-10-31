@@ -2,13 +2,14 @@
 interface Props {
 	title: string;
 	description: string;
-	currentPath: '/' | '/analytics/';
+	currentPath: '/' | '/analytics/' | '/analytics/history-off/' | '/analytics/history-on/';
 }
 
 const { title, description, currentPath } = Astro.props;
 const links = [
 	{ href: '/', label: 'Home' },
 	{ href: '/analytics/', label: 'Analytics test' },
+	{ href: '/analytics/history-off/', label: 'History test' },
 ] as const;
 ---
 
@@ -22,6 +23,7 @@ const links = [
 		<meta name="description" content={description} />
 		<meta name="robots" content="noindex, nofollow" />
 		<title>{title} · Astro Sandbox</title>
+		<slot name="head" />
 	</head>
 	<body>
 		<header class="site-header">

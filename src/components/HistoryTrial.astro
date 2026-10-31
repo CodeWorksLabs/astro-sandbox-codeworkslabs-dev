@@ -1,0 +1,59 @@
+---
+import SandboxLayout from '../layouts/SandboxLayout.astro';
+import { ClientRouter } from 'astro:transitions';
+interface Props { phase: 'off' | 'on'; destination?: boolean; }
+const { phase, destination = false } = Astro.props;
+const base = `/analytics/history-${phase}/` as const;
+const title = `History ${phase}: ${destination ? 'next page' : 'landing'}`;
+---
+<SandboxLayout title={title} description="A real Astro client-side navigation trial for analytics pageviews." currentPath={base}>
+  <ClientRouter slot="head" />
+  <h1>{title}</h1>
+  <p>These pages use Astro’s client-side router. Their labels identify the test phase; they do not change settings in Google Analytics.</p>
+  <p>Completed Astro navigation events in this document: <output class="navigation-count">0</output></p>
+  {!destination && <section class="history-event" data-phase={phase}>
+    <h2>Send one event before navigating</h2>
+    <button type="button">Send history-{phase} event</button>
+    <p class="history-status" role="status">Press once, check the results, then follow the next-page link.</p>
+    <ul class="history-results" aria-label="Provider event results"></ul>
+    <p>Acceptance is a browser receipt. Confirm delivery in each provider’s report.</p>
+  </section>}
+  <p><a href={destination ? base : `${base}next/`}>{destination ? 'Return to the landing page' : 'Continue to the next page →'}</a></p>
+  <p><a href="/analytics/history-off/">History off phase</a> · <a href="/analytics/history-on/">History on phase</a> · <a href="/analytics/">Standard journey</a></p>
+</SandboxLayout>
+<script>
+  import { track } from '@codeworkslabs/astro-analytics/client';
+  const initialized = new WeakSet<Element>();
+  let completions = 0;
+  const labels: Record<string, string> = { fathom: 'Fathom', plausible: 'Plausible', 'google-analytics': 'Google Analytics 4', matomo: 'Matomo', umami: 'Umami' };
+  function setup() {
+    for (const output of document.querySelectorAll('.navigation-count')) output.textContent = String(completions);
+    for (const panel of document.querySelectorAll<HTMLElement>('.history-event')) {
+      if (initialized.has(panel)) continue;
+      initialized.add(panel);
+      const button = panel.querySelector('button');
+      const status = panel.querySelector('.history-status');
+      const list = panel.querySelector('.history-results');
+      button?.addEventListener('click', () => {
+        const phase = panel.dataset.phase;
+        if ((phase !== 'off' && phase !== 'on') || !status || !list) return;
+        button.disabled = true;
+        const response = track(`cwl_astro_history_${phase}`, { phase });
+        list.replaceChildren();
+        for (const [provider, outcome] of Object.entries(response.providers)) {
+          const item = document.createElement('li');
+          item.textContent = outcome?.ok ? `${labels[provider] ?? provider} accepted the event.` : `${labels[provider] ?? provider}: ${outcome?.reason ?? 'unavailable'}.`;
+          list.append(item);
+        }
+        status.textContent = response.ok ? 'All configured trackers accepted this event.' : 'Some trackers could not accept the event. Reload to try again after checking them.';
+      });
+    }
+  }
+  document.addEventListener('astro:page-load', () => { completions += 1; setup(); });
+  setup();
+</script>
+<style>
+  section { margin: 2rem 0; padding: 1.25rem; border: 1px solid currentColor; border-radius: .75rem; }
+  button { font: inherit; padding: .6rem 1rem; cursor: pointer; }
+  p, li { line-height: 1.6; }
+</style>

@@ -16,6 +16,7 @@ export default defineConfig({
 				{
 					name: 'google-analytics',
 					measurementId: 'G-BZRRREHHE5',
+					config: { debug_mode: true },
 					pageviews: 'astro',
 					// Phil confirmed this stream's history-pageview setting is off (2026-10-28).
 					historyPageviewsDisabled: true,
